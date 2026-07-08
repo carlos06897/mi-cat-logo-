@@ -1,0 +1,131 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #faf8f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Cuadrícula de Productos */
+.products-grid {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de Producto */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.price {
+    font-weight: bold;
+    color: #00b4d8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* El Modal (Ventana Emergente Oculta) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+}
+
+#modal-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+#modal-title {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #111;
+}
+
+#modal-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.btn-action {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Catálogo Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mis Productos</h1>
+        <p>Selecciona el que más te guste para ver los detalles.</p>
+    </header>
+
+    <!-- CUADRÍCULA DE PRODUCTOS -->
+    <main class="products-grid">
+        
+        <!-- Producto 1 -->
+        <div class="product-card" onclick="openModal('Producto 1', 'Esta es la descripción detallada del Producto 1. Perfecto para lo que necesitas.', 'https://picsum.photos/400/300?random=1')">
+            <img src="https://picsum.photos/400/300?random=1" alt="Producto 1">
+            <h3>Producto 1</h3>
+            <p class="price">$10.00</p>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card" onclick="openModal('Producto 2', 'Esta es la descripción detallada del Producto 2. Calidad garantizada.', 'https://picsum.photos/400/300?random=2')">
+            <img src="https://picsum.photos/400/300?random=2" alt="Producto 2">
+            <h3>Producto 2</h3>
+            <p class="price">$15.00</p>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card" onclick="openModal('Producto 3', 'Esta es la descripción detallada del Producto 3. Excelente opción.', 'https://picsum.photos/400/300?random=3')">
+            <img src="https://picsum.photos/400/300?random=3" alt="Producto 3">
+            <h3>Producto 3</h3>
+            <p class="price">$20.00</p>
+        </div>
+
+    </main>
+
+    <!-- VENTANA EMERGENTE (MODAL) OCULTA POR DEFECTO -->
+    <div id="product-modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+            <button class="btn-action">Preguntar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

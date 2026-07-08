@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Catálogo </title>
+    <title>Mi Catálogo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,21 +17,21 @@
     <main class="products-grid">
         
         <!-- Producto 1 -->
-        <div class="product-card" onclick="openModal('Producto 1', 'Esta es la descripción detallada del Producto 1. Perfecto para lo que necesitas.', 'https://picsum.photos/400/300?random=1')">
-            <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Producto 1">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Esta es la descripción detallada del reproductor de 7 pulgadas. Excelente calidad y conectividad para tu vehículo.', '$110.00', 'https://i.ibb.co/GQDN3226/IMG-4578.jpg')">
+            <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
             <h3>Reproductor de pantalla 7"</h3>
             <p class="price">$110.00</p>
         </div>
 
         <!-- Producto 2 -->
-        <div class="product-card" onclick="openModal('Producto 2', 'Esta es la descripción detallada del Producto 2. Calidad garantizada.', 'https://picsum.photos/400/300?random=2')">
-            <img src="https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg" alt="Producto 2">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Esta es la descripción detallada del reproductor de 9 pulgadas con pantalla de alta definición.', '$130.00', 'https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg')">
+            <img src="https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg" alt="Reproductor de pantalla 9''">
             <h3>Reproductor de pantalla 9"</h3>
             <p class="price">$130.00</p>
         </div>
 
         <!-- Producto 3 -->
-        <div class="product-card" onclick="openModal('Producto 3', 'Esta es la descripción detallada del Producto 3. Excelente opción.', 'https://picsum.photos/400/300?random=3')">
+        <div class="product-card" onclick="openModal('Producto 3', 'Esta es la descripción detallada del Producto 3. Excelente opción.', '$20.00', 'https://picsum.photos/400/300?random=3')">
             <img src="https://picsum.photos/400/300?random=3" alt="Producto 3">
             <h3>Producto 3</h3>
             <p class="price">$20.00</p>
@@ -39,14 +39,15 @@
 
     </main>
 
-    <!-- VENTANA EMERGENTE (MODAL) OCULTA POR DEFECTO -->
+    <!-- VENTANA EMERGENTE (MODAL) -->
     <div id="product-modal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <img id="modal-img" src="" alt="">
             <h2 id="modal-title"></h2>
             <p id="modal-desc"></p>
-            <button class="btn-action">Preguntar por WhatsApp</button>
+            <p id="modal-price" style="font-weight: bold; color: #00b4d8; font-size: 20px; margin: 10px 0;"></p>
+            <button class="btn-action" id="btn-whatsapp">Preguntar por WhatsApp</button>
         </div>
     </div>
 

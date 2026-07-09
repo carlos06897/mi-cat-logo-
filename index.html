@@ -16,8 +16,8 @@
     <!-- CUADRÍCULA DE PRODUCTOS (2 COLUMNAS EN MÓVIL) -->
     <main class="products-grid">
         
-        <!-- Producto 1 -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla android 16 con tecnología QLED con cámara de retroceso HD 1080, Resolución HD, 2 ram 32 almacenamiento, Wifi, GPS, Bluetooth, Carplay, Android auto, Play store, Doble USB, Subwoofer, Mirror link (Duplica pantalla), Fancooler y más!', '$110.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
+        <!-- Producto 1: Pantalla 7" -->
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla Android de 7 pulgadas\n\n📺 Pantalla: Tecnología QLED de alta definición.\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store y compatible con Carplay y Android Auto.\n🔌 Extras: Fancooler integrado, doble puerto USB, soporte para Subwoofer y cámara de retroceso HD 1080 incluida.\n\n¡Potencia y conectividad premium para tu vehículo! 🎶🎬', '$110.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
             <div class="card-carousel">
                 <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
             </div>
@@ -25,22 +25,23 @@
             <p class="price">$110.00</p>
         </div>
 
-        <!-- Producto 2 -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Esta es la descripción detallada del reproductor de 9 pulgadas con pantalla de alta definición.', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
+        <!-- Producto 2: Pantalla 9" -->
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
             <div class="card-carousel">
+                <div class="card-carousel">
                 <img src="https://i.ibb.co/FbmSskfZ/IMG-0239.jpg" alt="Reproductor de pantalla 9''">
             </div>
             <h3>Reproductor de pantalla 9"</h3>
-            <p class="price">$130.00</p>
+            <p class="price">$150.00</p>
         </div>
 
-        <!-- Producto 3 -->
-        <div class="product-card" onclick="openModal('Luces Led H4 6mil LUM', 'Luces Led TOPOWL T100 6.000 Lumines', '$20.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
+        <!-- Producto 3: Luces Led -->
+        <div class="product-card" onclick="openModal('Luces Led H4 6mil LUM', 'Luces Led TOPOWL T100 6.000 Lúmenes\n\n💡 Potencia: 6.000 lúmenes de alta intensidad para una conducción nocturna segura.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para mayor durabilidad.\n🚀 Instalación: Sistema Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora la estética de tu carro y obtén una iluminación blanca y nítida en el camino! ⚡🚘', '$20.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
             <div class="card-carousel">
                 <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 6mil LUM">
             </div>
             <h3>Luces Led H4 6mil LUM</h3>
-            <p class="price">$20.00</p>
+            <p class="price">$120.00</p>
         </div>
 
     </main>
@@ -66,20 +67,85 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             
-            <!-- Contenedor del carrusel con flechas -->
-            <div class="modal-carousel-container">
-                <button class="carousel-arrow prev" onclick="changeImage(-1)">&#10094;</button>
+            <div class="modal-carousel-container" onclick="zoomImage()">
+                <button class="carousel-arrow prev" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</button>
                 <img id="modal-img" src="" alt="">
-                <button class="carousel-arrow next" onclick="changeImage(1)">&#10095;</button>
+                <button class="carousel-arrow next" onclick="event.stopPropagation(); changeImage(1)">&#10095;</button>
             </div>
 
             <h2 id="modal-title"></h2>
-            <p id="modal-desc"></p>
-            <p id="modal-price" style="font-weight: bold; color: #00b4d8; font-size: 20px; margin: 10px 0;"></p>
+            <p id="modal-desc" style="white-space: pre-line; text-align: left;"></p>
+            <p id="modal-price" style="font-weight: bold; color: #00b4d8; font-size: 20px; margin: 10px 0; text-align: center;"></p>
             <button class="btn-action" id="btn-whatsapp">Preguntar por WhatsApp</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- VENTANA DE IMAGEN EXPANDIDA (ZOOM PANTALLA COMPLETA) -->
+    <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
+        <span class="close-zoom-btn" onclick="closeZoom()">&times;</span>
+        <img id="zoom-img" src="" alt="" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- SCRIPT INLINE PARA EL MANEJO DE WHATSAPP CON TU NÚMERO ACTUALIZADO -->
+    <script>
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        function openModal(title, description, price, imagesArray) {
+            currentImages = imagesArray;
+            currentImageIndex = 0;
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = description;
+            document.getElementById('modal-price').innerText = price;
+            
+            document.getElementById('modal-img').src = currentImages[currentImageIndex];
+
+            const arrows = document.querySelectorAll('.carousel-arrow');
+            if (currentImages.length <= 1) {
+                arrows.forEach(arrow => arrow.style.display = 'none');
+            } else {
+                arrows.forEach(arrow => arrow.style.display = 'block');
+            }
+
+            // NUEVO NÚMERO CONFIGURADO AQUÍ
+            const phoneNumber = "584122163220"; 
+            const message = `Hola! Estoy interesado en el ${title} que cuesta ${price}. Me das más información?`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            document.getElementById('btn-whatsapp').onclick = function() {
+                window.open(whatsappUrl, '_blank');
+            };
+
+            document.getElementById('product-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            if (currentImageIndex >= currentImages.length) {
+                currentImageIndex = 0;
+            }
+            if (currentImageIndex < 0) {
+                currentImageIndex = currentImages.length - 1;
+            }
+
+            document.getElementById('modal-img').src = currentImages[currentImageIndex];
+        }
+
+        function zoomImage() {
+            const currentSrc = document.getElementById('modal-img').src;
+            document.getElementById('zoom-img').src = currentSrc;
+            document.getElementById('zoom-modal').style.display = 'flex';
+        }
+
+        function closeZoom() {
+            document.getElementById('zoom-modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

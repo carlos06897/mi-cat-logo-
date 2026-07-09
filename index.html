@@ -28,11 +28,10 @@
         <!-- Producto 2: Pantalla 9" -->
         <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
             <div class="card-carousel">
-                <div class="card-carousel">
                 <img src="https://i.ibb.co/FbmSskfZ/IMG-0239.jpg" alt="Reproductor de pantalla 9''">
             </div>
             <h3>Reproductor de pantalla 9"</h3>
-            <p class="price">$150.00</p>
+            <p class="price">$130.00</p>
         </div>
 
         <!-- Producto 3: Luces Led -->
@@ -41,7 +40,7 @@
                 <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 6mil LUM">
             </div>
             <h3>Luces Led H4 6mil LUM</h3>
-            <p class="price">$120.00</p>
+            <p class="price">$20.00</p>
         </div>
 
     </main>
@@ -86,7 +85,6 @@
         <img id="zoom-img" src="" alt="" onclick="event.stopPropagation()">
     </div>
 
-    <!-- SCRIPT INLINE PARA EL MANEJO DE WHATSAPP CON TU NÚMERO ACTUALIZADO -->
     <script>
         let currentImages = [];
         let currentImageIndex = 0;
@@ -108,7 +106,6 @@
                 arrows.forEach(arrow => arrow.style.display = 'block');
             }
 
-            // NUEVO NÚMERO CONFIGURADO AQUÍ
             const phoneNumber = "584122163220"; 
             const message = `Hola! Estoy interesado en el ${title} que cuesta ${price}. Me das más información?`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -136,6 +133,14 @@
 
             document.getElementById('modal-img').src = currentImages[currentImageIndex];
         }
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('product-modal').style.display === 'flex') {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                if (event.key === 'ArrowRight') changeImage(1);
+                if (event.key === 'Escape') closeModal();
+            }
+        });
 
         function zoomImage() {
             const currentSrc = document.getElementById('modal-img').src;

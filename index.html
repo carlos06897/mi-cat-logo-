@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Catálogo</title>
-    <!-- FUENTE PROFESIONAL INTER -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -86,6 +85,23 @@
             object-fit: cover;
         }
 
+        /* ETIQUETA DE PROMO */
+        .promo-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #34c759;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 5;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
         .product-card h3 {
             font-size: 14px;
             font-weight: 500;
@@ -95,11 +111,24 @@
             letter-spacing: -0.2px;
         }
 
-        .product-card .price {
+        /* PRECIOS EN LA TARJETA */
+        .price-container {
+            margin: 0 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .price-old {
+            font-size: 12px;
+            color: #8e8e93;
+            text-decoration: line-through;
+        }
+
+        .price-new {
             font-size: 16px;
             font-weight: 600;
-            color: #0a84ff;
-            margin: 0 12px;
+            color: #34c759;
         }
 
         /* VENTANA EMERGENTE (MODAL) */
@@ -142,12 +171,6 @@
             cursor: zoom-in;
         }
 
-        document.getElementById('modal-img') {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         #modal-img {
             width: 100%;
             height: 100%;
@@ -178,7 +201,36 @@
             font-size: 20px;
             font-weight: 600;
             letter-spacing: -0.4px;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* DISEÑO DE PRECIO DOBLE EN DETALLES */
+        .modal-price-box {
+            background-color: #2c2c2e;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .modal-price-old {
+            font-size: 14px;
+            color: #8e8e93;
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+
+        .modal-price-new {
+            font-size: 22px;
+            font-weight: 700;
+            color: #34c759;
+        }
+
+        .modal-price-notice {
+            font-size: 11px;
+            color: #aeaeb2;
+            margin-top: 4px;
+            font-weight: 500;
         }
 
         .modal-content p {
@@ -199,7 +251,7 @@
         }
 
         .btn-action {
-            background-color: #34c759;
+            background-color: #25d366;
             color: white;
             border: none;
             padding: 14px;
@@ -209,7 +261,7 @@
             width: 100%;
             cursor: pointer;
             margin-top: 15px;
-            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.2);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
 
         /* SECCIÓN DE CONFIANZA INFOS */
@@ -282,42 +334,61 @@
 
     <header>
         <h1>Mis Productos</h1>
-        <p>Selecciona el que más te guste para ver los detalles.</p>
+        <p>Precios calculados a tasa oficial BCV</p>
     </header>
 
-    <!-- CUADRÍCULA DE PRODUCTOS -->
     <main class="products-grid">
         
-        <!-- Producto 1: Pantalla 7" -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla Android de 7 pulgadas\n\n📺 Pantalla: Tecnología QLED de alta definición.\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store y compatible con Carplay y Android Auto.\n🔌 Extras: Fancooler integrado, doble puerto USB, soporte para Subwoofer y cámara de retroceso HD 1080 incluida.\n\n¡Potencia y conectividad premium para tu vehículo! 🎶🎬', '$110.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla Android de 7 pulgadas\n\n🤖 Sistema Operativo: Android 16 de última generación.\n📺 Pantalla: Tecnología QLED de alta definición.\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store y compatible con Carplay y Android Auto.\n🔌 Extras: Fancooler integrado, doble puerto USB, soporte para Subwoofer y cámara de retroceso HD 1080 incluida.\n\n¡Potencia, modernidad y conectividad premium para tu vehículo! 🎶🎬', '$110.00', '$100.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
             <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
                 <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
             </div>
             <h3>Reproductor de pantalla 7"</h3>
-            <p class="price">$110.00</p>
+            <div class="price-container">
+                <span class="price-old">$110.00</span>
+                <span class="price-new">$100.00</span>
+            </div>
         </div>
 
-        <!-- Producto 2: Pantalla 9" -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$150.00', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
             <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
                 <img src="https://i.ibb.co/FbmSskfZ/IMG-0239.jpg" alt="Reproductor de pantalla 9''">
             </div>
             <h3>Reproductor de pantalla 9"</h3>
-            <p class="price">$130.00</p>
+            <div class="price-container">
+                <span class="price-old">$150.00</span>
+                <span class="price-new">$130.00</span>
+            </div>
         </div>
 
-        <!-- Producto 3: Luces Led -->
-        <div class="product-card" onclick="openModal('Luces Led H4 6mil LUM', 'Luces Led TOPOWL T100 6.000 Lúmenes\n\n💡 Potencia: 6.000 lúmenes de alta intensidad para una conducción nocturnal segura.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para mayor durabilidad.\n🚀 Instalación: Sistema Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora la estética de tu carro y obtén una iluminación blanca y nítida en el camino! ⚡🚘', '$20.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
+        <div class="product-card" onclick="openModal('Luces Led H4 150mil LUM', 'Luces Led TOPOWL T100 de Alta Potencia\n\n💡 Potencia Extrema: 150.000 lúmenes de alta intensidad para una visibilidad nocturna perfecta y ultra nítida.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para máxima durabilidad.\n🚀 Instalación: Sistema Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora drásticamente la estética de tu carro y obtén la máxima iluminación blanca en el camino! ⚡🚘', '$120.00', '$100.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
             <div class="card-carousel">
-                <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 6mil LUM">
+                <span class="promo-badge">Oferta</span>
+                <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 150mil LUM">
             </div>
-            <h3>Luces Led H4 6mil LUM</h3>
-            <p class="price">$20.00</p>
+            <h3>Luces Led H4 150mil LUM</h3>
+            <div class="price-container">
+                <span class="price-old">$120.00</span>
+                <span class="price-new">$100.00</span>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="openModal('Combo Star Audio Open Show', 'Combo de Sonido Profesional Star Audio\n\n🔊 Medios Rangos: 4 Medios de 6.5 pulgadas (Modelo MS-BA-6) con corrector de fase (Punta de bala azul metálico) que optimiza la proyección y claridad de la voz.\n⚡ Potencia Medios: 400W MAX / Impedancia de 4 Ohmios.\n📐 Agudos Nítidos: 2 Super Tweeters de 4 pulgadas (Modelo MS-BA-T4) de alta eficiencia para frecuencias altas cristalinas y potentes.\n⚡ Potencia Tweeters: 400W MAX / Impedancia de 4 Ohmios.\n💎 Calidad Estructura: Acabados en aluminio pulido y bobinas de alta resistencia preparadas para el trabajo pesado.\n\n¡Monta el verdadero Open Show en tu carro con la potencia y nitidez que solo Star Audio te puede dar! 🎸🔥', '$150.00', '$120.00', ['https://i.ibb.co/C3gLSxSF/IMG-0255.jpg', 'https://i.ibb.co/tMGgkct9/IMG-0254.jpg'])">
+            <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
+                <img src="https://i.ibb.co/C3gLSxSF/IMG-0255.jpg" alt="Combo Star Audio Open Show">
+            </div>
+            <h3>Combo Star Audio Open Show</h3>
+            <div class="price-container">
+                <span class="price-old">$150.00</span>
+                <span class="price-new">$120.00</span>
+            </div>
         </div>
 
     </main>
 
-    <!-- SECCIÓN DE CONFIANZA -->
     <section class="info-section">
         <div class="info-box">
             <h4>🛡️ Garantía</h4>
@@ -333,7 +404,6 @@
         </div>
     </section>
 
-    <!-- VENTANA EMERGENTE (MODAL DETALLES) -->
     <div id="product-modal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -345,13 +415,18 @@
             </div>
 
             <h2 id="modal-title"></h2>
+            
+            <div class="modal-price-box">
+                <div class="modal-price-old" id="modal-price-old"></div>
+                <div class="modal-price-new" id="modal-price-new"></div>
+                <div class="modal-price-notice">Precios válidos en Efectivo o Tasa Oficial BCV</div>
+            </div>
+
             <p id="modal-desc" style="white-space: pre-line; text-align: left;"></p>
-            <p id="modal-price" style="font-weight: 700; color: #0a84ff; font-size: 22px; margin: 12px 0; text-align: center;"></p>
             <button class="btn-action" id="btn-whatsapp">Preguntar por WhatsApp</button>
         </div>
     </div>
 
-    <!-- VENTANA DE IMAGEN EXPANDIDA -->
     <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
         <span class="close-zoom-btn" onclick="closeZoom()">&times;</span>
         <button class="carousel-arrow prev" onclick="event.stopPropagation(); changeImageZoom(-1)">&#10094;</button>
@@ -363,18 +438,20 @@
         let currentImages = [];
         let currentImageIndex = 0;
 
-        function openModal(title, description, price, imagesArray) {
+        function openModal(title, description, oldPrice, newPrice, imagesArray) {
             currentImages = imagesArray;
             currentImageIndex = 0;
 
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-desc').innerText = description;
-            document.getElementById('modal-price').innerText = price;
+            
+            document.getElementById('modal-price-old').innerText = "Precio Regular (BCV): " + oldPrice;
+            document.getElementById('modal-price-new').innerText = newPrice + " (Promo Efectivo)";
             
             updateModalImage();
 
             const phoneNumber = "584122163220"; 
-            const message = `Hola! Estoy interesado en el ${title} que cuesta ${price}. Me das más información?`;
+            const message = `Hola! Estoy interesado en la oferta de ${title} por ${newPrice} en efectivo (o ${oldPrice} a tasa BCV). Me das más información?`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             
             document.getElementById('btn-whatsapp').onclick = function() {

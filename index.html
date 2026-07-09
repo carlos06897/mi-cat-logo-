@@ -111,7 +111,7 @@
             letter-spacing: -0.2px;
         }
 
-        /* PRECIOS EN LA TARJETA (SIN TACHAR) */
+        /* PRECIOS EN LA TARJETA */
         .price-container {
             margin: 0 12px;
             display: flex;
@@ -119,9 +119,10 @@
             gap: 2px;
         }
 
-        .price-bcv {
+        .price-old {
             font-size: 12px;
             color: #8e8e93;
+            text-decoration: line-through;
         }
 
         .price-new {
@@ -146,4 +147,374 @@
 
         .modal-content {
             background-color: #1c1c1e;
-            color:
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 20px;
+            max-width: 420px;
+            width: 100%;
+            margin: 30px auto;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 1px solid #2c2c2e;
+        }
+
+        /* CONTENEDOR DEL CARRUSEL */
+        .modal-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 18px;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: zoom-in;
+        }
+
+        #modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* FLECHAS DEL CARRUSEL */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 16px;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .modal-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 10px;
+        }
+
+        /* DISEÑO DE PRECIO DOBLE EN DETALLES */
+        .modal-price-box {
+            background-color: #2c2c2e;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .modal-price-old {
+            font-size: 14px;
+            color: #8e8e93;
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+
+        .modal-price-new {
+            font-size: 22px;
+            font-weight: 700;
+            color: #34c759;
+        }
+
+        .modal-price-notice {
+            font-size: 11px;
+            color: #aeaeb2;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .modal-content p {
+            font-size: 14.5px;
+            color: #d1d1d6;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 26px;
+            color: #8e8e93;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .btn-action {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        /* SECCIÓN DE CONFIANZA INFOS */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 35px;
+        }
+
+        .info-box {
+            background-color: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            padding: 14px 6px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .info-box h4 {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .info-box p {
+            color: #8e8e93;
+            font-size: 10.5px;
+            line-height: 1.3;
+        }
+
+        /* VENTANA DE IMAGEN EXPANDIDA CON NAVEGACIÓN */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #zoom-img {
+            max-width: 95%;
+            max-height: 80%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .close-zoom-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            color: #aeaeb2;
+            cursor: pointer;
+            z-index: 2010;
+        }
+        
+        .zoom-modal .carousel-arrow {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mis Productos</h1>
+        <p>Precios calculados a tasa oficial BCV</p>
+    </header>
+
+    <main class="products-grid">
+        
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla Android de 7 pulgadas\n\n🤖 Sistema Operativo: Android 16 de última generación.\n📺 Pantalla: Tecnología QLED de alta definición.\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store y compatible con Carplay y Android Auto.\n🔌 Extras: Fancooler integrado, doble puerto USB, soporte para Subwoofer y cámara de retroceso HD 1080 incluida.\n\n¡Potencia, modernidad y conectividad premium para tu vehículo! 🎶🎬', '$110.00', '$100.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
+            <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
+                <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
+            </div>
+            <h3>Reproductor de pantalla 7"</h3>
+            <div class="price-container">
+                <span class="price-old">$110.00</span>
+                <span class="price-new">$100.00</span>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$150.00', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
+            <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
+                <img src="https://i.ibb.co/FbmSskfZ/IMG-0239.jpg" alt="Reproductor de pantalla 9''">
+            </div>
+            <h3>Reproductor de pantalla 9"</h3>
+            <div class="price-container">
+                <span class="price-old">$150.00</span>
+                <span class="price-new">$130.00</span>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="openModal('Luces Led H4 150mil LUM', 'Luces Led TOPOWL T100 de Alta Potencia\n\n💡 Potencia Extrema: 150.000 lúmenes de alta intensidad para una visibilidad nocturna perfecta y ultra nítida.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para máxima durabilidad.\n🚀 Instalación: Sistema Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora drácticamente la estética de tu carro y obtén la máxima iluminación blanca en el camino! ⚡🚘', '$120.00', '$100.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
+            <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
+                <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 150mil LUM">
+            </div>
+            <h3>Luces Led H4 150mil LUM</h3>
+            <div class="price-container">
+                <span class="price-old">$120.00</span>
+                <span class="price-new">$100.00</span>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="openModal('Combo Star Audio Open Show', 'Combo de Sonido Profesional Star Audio\n\n🔊 Medios Rangos: 4 Medios de 6.5 pulgadas (Modelo MS-BA-6) con corrector de fase (Punta de bala azul metálico) que optimiza la proyección y claridad de la voz.\n⚡ Potencia Medios: 400W MAX / Impedancia de 4 Ohmios.\n📐 Agudos Nítidos: 2 Super Tweeters de 4 pulgadas (Modelo MS-BA-T4) de alta eficiencia para frecuencias altas cristalinas y potentes.\n⚡ Potencia Tweeters: 400W MAX / Impedancia de 4 Ohmios.\n💎 Calidad Estructura: Acabados en aluminio pulido y bobinas de alta resistencia preparadas para el trabajo pesado.\n\n¡Monta el verdadero Open Show en tu carro con la potencia y nitidez que solo Star Audio te puede dar! 🎸🔥', '$150.00', '$120.00', ['AQUÍ_PEGA_EL_LINK_FOTO_1', 'AQUÍ_PEGA_EL_LINK_FOTO_2'])">
+            <div class="card-carousel">
+                <span class="promo-badge">Oferta</span>
+                <img src="AQUÍ_PEGA_EL_LINK_FOTO_1" alt="Combo Star Audio Open Show">
+            </div>
+            <h3>Combo Star Audio Open Show</h3>
+            <div class="price-container">
+                <span class="price-old">$150.00</span>
+                <span class="price-new">$120.00</span>
+            </div>
+        </div>
+
+    </main>
+
+    <section class="info-section">
+        <div class="info-box">
+            <h4>🛡️ Garantía</h4>
+            <p>Contra defectos de fábrica.</p>
+        </div>
+        <div class="info-box">
+            <h4>📍 Entregas</h4>
+            <p>Personales y envíos nacionales.</p>
+        </div>
+        <div class="info-box">
+            <h4>💳 Pagos</h4>
+            <p>Efectivo, divisas y pago móvil.</p>
+        </div>
+    </section>
+
+    <div id="product-modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-carousel-container" onclick="zoomImage()">
+                <button class="carousel-arrow prev" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</button>
+                <img id="modal-img" src="" alt="">
+                <button class="carousel-arrow next" onclick="event.stopPropagation(); changeImage(1)">&#10095;</button>
+            </div>
+
+            <h2 id="modal-title"></h2>
+            
+            <div class="modal-price-box">
+                <div class="modal-price-old" id="modal-price-old"></div>
+                <div class="modal-price-new" id="modal-price-new"></div>
+                <div class="modal-price-notice">Precios válidos en Efectivo o Tasa Oficial BCV</div>
+            </div>
+
+            <p id="modal-desc" style="white-space: pre-line; text-align: left;"></p>
+            <button class="btn-action" id="btn-whatsapp">Preguntar por WhatsApp</button>
+        </div>
+    </div>
+
+    <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
+        <span class="close-zoom-btn" onclick="closeZoom()">&times;</span>
+        <button class="carousel-arrow prev" onclick="event.stopPropagation(); changeImageZoom(-1)">&#10094;</button>
+        <img id="zoom-img" src="" alt="" onclick="event.stopPropagation()">
+        <button class="carousel-arrow next" onclick="event.stopPropagation(); changeImageZoom(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        function openModal(title, description, oldPrice, newPrice, imagesArray) {
+            currentImages = imagesArray;
+            currentImageIndex = 0;
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = description;
+            
+            document.getElementById('modal-price-old').innerText = "Precio Regular (BCV): " + oldPrice;
+            document.getElementById('modal-price-new').innerText = newPrice + " (Promo Efectivo)";
+            
+            updateModalImage();
+
+            const phoneNumber = "584122163220"; 
+            const message = `Hola! Estoy interesado en la oferta de ${title} por ${newPrice} en efectivo (o ${oldPrice} a tasa BCV). Me das más información?`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            document.getElementById('btn-whatsapp').onclick = function() {
+                window.open(whatsappUrl, '_blank');
+            };
+
+            document.getElementById('product-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function changeImage(direction) {
+            if (currentImages.length <= 1) return;
+            currentImageIndex += direction;
+
+            if (currentImageIndex >= currentImages.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = currentImages.length - 1;
+
+            updateModalImage();
+        }
+
+        function changeImageZoom(direction) {
+            changeImage(direction);
+            document.getElementById('zoom-img').src = currentImages[currentImageIndex];
+        }
+
+        function updateModalImage() {
+            document.getElementById('modal-img').src = currentImages[currentImageIndex];
+            
+            const modalArrows = document.querySelectorAll('#product-modal .carousel-arrow');
+            const zoomArrows = document.querySelectorAll('#zoom-modal .carousel-arrow');
+            
+            const displayStyle = currentImages.length <= 1 ? 'none' : 'block';
+            
+            modalArrows.forEach(arrow => arrow.style.display = displayStyle);
+            zoomArrows.forEach(arrow => arrow.style.display = displayStyle);
+        }
+
+        function zoomImage() {
+            if(currentImages[currentImageIndex].includes('AQUÍ_PEGA')) return;
+            document.getElementById('zoom-img').src = currentImages[currentImageIndex];
+            document.getElementById('zoom-modal').style.display = 'flex';
+        }
+
+        function closeZoom() {
+            document.getElementById('zoom-modal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('zoom-modal').style.display === 'flex') {
+                if (event.key === 'ArrowLeft') changeImageZoom(-1);
+                if (event.key === 'ArrowRight') changeImageZoom(1);
+                if (event.key === 'Escape') closeZoom();
+            } else if (document.getElementById('product-modal').style.display === 'block') {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                if (event.key === 'ArrowRight') changeImage(1);
+                if (event.key === 'Escape') closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

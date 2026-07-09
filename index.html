@@ -13,53 +13,66 @@
         <p>Selecciona el que más te guste para ver los detalles.</p>
     </header>
 
-    <!-- CUADRÍCULA DE PRODUCTOS -->
+    <!-- CUADRÍCULA DE PRODUCTOS (2 COLUMNAS EN MÓVIL) -->
     <main class="products-grid">
         
         <!-- Producto 1 -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla android 16 con tecnología QLED con cámara de retroceso HD 1080, Resolución HD, 2 ram 32 almacenamiento, Wifi, GPS, Bluetooth, Carplay, Android auto, Play store, Doble USB, Subwoofer, Mirror link (Duplica pantalla), Fancooler y más!', '$110.00', 'https://i.ibb.co/GQDN3226/IMG-4578.jpg')">
-            <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla android 16 con tecnología QLED con cámara de retroceso HD 1080, Resolución HD, 2 ram 32 almacenamiento, Wifi, GPS, Bluetooth, Carplay, Android auto, Play store, Doble USB, Subwoofer, Mirror link (Duplica pantalla), Fancooler y más!', '$110.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg', 'https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg'])">
+            <div class="card-carousel">
+                <img src="https://i.ibb.co/GQDN3226/IMG-4578.jpg" alt="Reproductor de pantalla 7''">
+            </div>
             <h3>Reproductor de pantalla 7"</h3>
             <p class="price">$110.00</p>
         </div>
 
         <!-- Producto 2 -->
-        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Esta es la descripción detallada del reproductor de 9 pulgadas con pantalla de alta definición.', '$130.00', 'https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg')">
-            <img src="https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg" alt="Reproductor de pantalla 9''">
+        <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Esta es la descripción detallada del reproductor de 9 pulgadas con pantalla de alta definición.', '$130.00', ['https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg', 'https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
+            <div class="card-carousel">
+                <img src="https://i.ibb.co/mYMnQmM/73fccb93-32fa-4f12-8dd1-f287d02f3734.jpg" alt="Reproductor de pantalla 9''">
+            </div>
             <h3>Reproductor de pantalla 9"</h3>
             <p class="price">$130.00</p>
         </div>
 
         <!-- Producto 3 -->
-        <div class="product-card" onclick="openModal('Producto 3', 'Esta es la descripción detallada del Producto 3. Excelente opción.', '$20.00', 'https://picsum.photos/400/300?random=3')">
-            <img src="https://picsum.photos/400/300?random=3" alt="Producto 3">
+        <div class="product-card" onclick="openModal('Producto 3', 'Esta es la descripción detallada del Producto 3. Excelente opción.', '$20.00', ['https://picsum.photos/400/300?random=3'])">
+            <div class="card-carousel">
+                <img src="https://picsum.photos/400/300?random=3" alt="Producto 3">
+            </div>
             <h3>Producto 3</h3>
             <p class="price">$20.00</p>
         </div>
 
     </main>
 
-    <!-- SECCIÓN DE CONFIANZA (INFORMACIÓN EXTRA) -->
+    <!-- SECCIÓN DE CONFIANZA -->
     <section class="info-section">
         <div class="info-box">
             <h4>🛡️ Garantía</h4>
-            <p>Todos nuestros Productos cuentan con garantía.</p>
+            <p>Garantía contra defectos de fábrica.</p>
         </div>
         <div class="info-box">
-            <h4>📍 Entregas y Envíos</h4>
-            <p>Entregas personales y envíos seguros a nivel nacional.</p>
+            <h4>📍 Entregas</h4>
+            <p>Personales y envíos nacionales.</p>
         </div>
         <div class="info-box">
-            <h4>💳 Métodos de Pago</h4>
-            <p>Efectivo, Divisas, Pago móvil y Transferencias.</p>
+            <h4>💳 Pagos</h4>
+            <p>Efectivo, divisas y pago móvil.</p>
         </div>
     </section>
 
-    <!-- VENTANA EMERGENTE (MODAL) -->
+    <!-- VENTANA EMERGENTE (MODAL CON CARRUSEL) -->
     <div id="product-modal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <img id="modal-img" src="" alt="">
+            
+            <!-- Contenedor del carrusel con flechas -->
+            <div class="modal-carousel-container">
+                <button class="carousel-arrow prev" onclick="changeImage(-1)">&#10094;</button>
+                <img id="modal-img" src="" alt="">
+                <button class="carousel-arrow next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+
             <h2 id="modal-title"></h2>
             <p id="modal-desc"></p>
             <p id="modal-price" style="font-weight: bold; color: #00b4d8; font-size: 20px; margin: 10px 0;"></p>
@@ -70,3 +83,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Catálogo</title>
+    <!-- FUENTE PROFESIONAL INTER -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -122,7 +123,7 @@
         .price-old {
             font-size: 12px;
             color: #8e8e93;
-            text-decoration: line-through;
+            /* Se removió el tachado */
         }
 
         .price-new {
@@ -216,7 +217,7 @@
         .modal-price-old {
             font-size: 14px;
             color: #8e8e93;
-            text-decoration: line-through;
+            /* Se removió el tachado */
             margin-bottom: 2px;
         }
 
@@ -337,8 +338,10 @@
         <p>Precios calculados a tasa oficial BCV</p>
     </header>
 
+    <!-- CUADRÍCULA DE PRODUCTOS -->
     <main class="products-grid">
         
+        <!-- Producto 1: Pantalla 7" -->
         <div class="product-card" onclick="openModal('Reproductor de pantalla 7\'\'', 'Pantalla Android de 7 pulgadas\n\n🤖 Sistema Operativo: Android 16 de última generación.\n📺 Pantalla: Tecnología QLED de alta definición.\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store y compatible con Carplay y Android Auto.\n🔌 Extras: Fancooler integrado, doble puerto USB, soporte para Subwoofer y cámara de retroceso HD 1080 incluida.\n\n¡Potencia, modernidad y conectividad premium para tu vehículo! 🎶🎬', '$110.00', '$100.00', ['https://i.ibb.co/GQDN3226/IMG-4578.jpg'])">
             <div class="card-carousel">
                 <span class="promo-badge">Oferta</span>
@@ -351,6 +354,7 @@
             </div>
         </div>
 
+        <!-- Producto 2: Pantalla 9" -->
         <div class="product-card" onclick="openModal('Reproductor de pantalla 9\'\'', 'Pantalla Android de 9 pulgadas (Modelo K802)\n\n🚀 Rendimiento: 2 GB de memoria RAM + 32 GB de almacenamiento interno.\n🌐 Conectividad: Wi-Fi de alta velocidad y Bluetooth para llamadas manos libres y música.\n📍 Navegación: GPS integrado para tus rutas.\n📲 Phone Link: Duplica la pantalla de tu teléfono fácilmente (Mirror Link).\n📥 Entretenimiento: Acceso total a la Play Store (descarga YouTube, Google Maps, Spotify y tus apps favoritas).\n🔌 Extras: Doble puerto USB, entrada AV-IN, soporte para cámara de retroceso y radio FM.\n\n¡Lista para instalar y disfrutar del viaje! 🎶🎬', '$150.00', '$130.00', ['https://i.ibb.co/FbmSskfZ/IMG-0239.jpg', 'https://i.ibb.co/8ny9Nt8p/IMG-0238.jpg', 'https://i.ibb.co/Y71vpXR7/IMG-0229.jpg', 'https://i.ibb.co/1fyN1f8t/IMG-0241.jpg'])">
             <div class="card-carousel">
                 <span class="promo-badge">Oferta</span>
@@ -363,7 +367,8 @@
             </div>
         </div>
 
-        <div class="product-card" onclick="openModal('Luces Led H4 150mil LUM', 'Luces Led TOPOWL T100 de Alta Potencia\n\n💡 Potencia Extrema: 150.000 lúmenes de alta intensidad para una visibilidad nocturna perfecta y ultra nítida.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para máxima durabilidad.\n🚀 Instalación: Sistema Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora drácticamente la estética de tu carro y obtén la máxima iluminación blanca en el camino! ⚡🚘', '$120.00', '$100.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
+        <!-- Producto 3: Luces Led -->
+        <div class="product-card" onclick="openModal('Luces Led H4 150mil LUM', 'Luces Led TOPOWL T100 de Alta Potencia\n\n💡 Potencia Extrema: 150.000 lúmenes de alta intensidad para una visibilidad nocturna perfecta y ultra nítida.\n🔌 Conector: Socket H4 (Alta y Baja en el mismo bombillo).\n❄️ Refrigeración: Disipación de calor eficiente para máxima durabilidad.\n🚀 Instalación: System Plug & Play, directo al conector original sin modificar cables.\n\n¡Mejora drásticamente la estética de tu carro y obtén la máxima iluminación blanca en el camino! ⚡🚘', '$120.00', '$100.00', ['https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg', 'https://i.ibb.co/v4n7r1nh/IMG-0247.jpg', 'https://i.ibb.co/qFJhPrJj/IMG-0248.jpg', 'https://i.ibb.co/Y7bVFh3s/IMG-0242.jpg'])">
             <div class="card-carousel">
                 <span class="promo-badge">Oferta</span>
                 <img src="https://i.ibb.co/nNkHb2ZR/IMG-0244.jpg" alt="Luces Led H4 150mil LUM">
@@ -375,10 +380,11 @@
             </div>
         </div>
 
-        <div class="product-card" onclick="openModal('Combo Star Audio Open Show', 'Combo de Sonido Profesional Star Audio\n\n🔊 Medios Rangos: 4 Medios de 6.5 pulgadas (Modelo MS-BA-6) con corrector de fase (Punta de bala azul metálico) que optimiza la proyección y claridad de la voz.\n⚡ Potencia Medios: 400W MAX / Impedancia de 4 Ohmios.\n📐 Agudos Nítidos: 2 Super Tweeters de 4 pulgadas (Modelo MS-BA-T4) de alta eficiencia para frecuencias altas cristalinas y potentes.\n⚡ Potencia Tweeters: 400W MAX / Impedancia de 4 Ohmios.\n💎 Calidad Estructura: Acabados en aluminio pulido y bobinas de alta resistencia preparadas para el trabajo pesado.\n\n¡Monta el verdadero Open Show en tu carro con la potencia y nitidez que solo Star Audio te puede dar! 🎸🔥', '$150.00', '$120.00', ['AQUÍ_PEGA_EL_LINK_FOTO_1', 'AQUÍ_PEGA_EL_LINK_FOTO_2'])">
+        <!-- Producto 4: Combo Star Audio Open Show -->
+        <div class="product-card" onclick="openModal('Combo Star Audio Open Show', 'Combo de Sonido Profesional Star Audio\n\n🔊 Medios Rangos: 4 Medios de 6.5 pulgadas (Modelo MS-BA-6) con corrector de fase (Punta de bala azul metálico) que optimiza la proyección y claridad de la voz.\n⚡ Potencia Medios: 400W MAX / Impedancia de 4 Ohmios.\n📐 Agudos Nítidos: 2 Super Tweeters de 4 pulgadas (Modelo MS-BA-T4) de alta eficiencia para frecuencias altas cristalinas y potentes.\n⚡ Potencia Tweeters: 400W MAX / Impedancia de 4 Ohmios.\n💎 Calidad Estructura: Acabados en aluminio pulido y bobinas de alta resistencia preparadas para el trabajo pesado.\n\n¡Monta el verdadero Open Show en tu carro con la potencia y nitidez que solo Star Audio te puede dar! 🎸🔥', '$150.00', '$120.00', ['https://i.ibb.co/zhxp01y6/IMG-0255.jpg', 'https://i.ibb.co/LhcDv7y8/IMG-0254.jpg'])">
             <div class="card-carousel">
                 <span class="promo-badge">Oferta</span>
-                <img src="AQUÍ_PEGA_EL_LINK_FOTO_1" alt="Combo Star Audio Open Show">
+                <img src="https://i.ibb.co/zhxp01y6/IMG-0255.jpg" alt="Combo Star Audio Open Show">
             </div>
             <h3>Combo Star Audio Open Show</h3>
             <div class="price-container">
@@ -389,6 +395,7 @@
 
     </main>
 
+    <!-- SECCIÓN DE CONFIANZA -->
     <section class="info-section">
         <div class="info-box">
             <h4>🛡️ Garantía</h4>
@@ -404,6 +411,7 @@
         </div>
     </section>
 
+    <!-- VENTANA EMERGENTE (MODAL DETALLES) -->
     <div id="product-modal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -416,6 +424,7 @@
 
             <h2 id="modal-title"></h2>
             
+            <!-- CONTENEDOR DE PRECIOS MODAL -->
             <div class="modal-price-box">
                 <div class="modal-price-old" id="modal-price-old"></div>
                 <div class="modal-price-new" id="modal-price-new"></div>
@@ -427,6 +436,7 @@
         </div>
     </div>
 
+    <!-- VENTANA DE IMAGEN EXPANDIDA -->
     <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
         <span class="close-zoom-btn" onclick="closeZoom()">&times;</span>
         <button class="carousel-arrow prev" onclick="event.stopPropagation(); changeImageZoom(-1)">&#10094;</button>
@@ -495,7 +505,6 @@
         }
 
         function zoomImage() {
-            if(currentImages[currentImageIndex].includes('AQUÍ_PEGA')) return;
             document.getElementById('zoom-img').src = currentImages[currentImageIndex];
             document.getElementById('zoom-modal').style.display = 'flex';
         }
